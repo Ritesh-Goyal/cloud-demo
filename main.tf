@@ -16,17 +16,17 @@ output "amazon-ami" {
   value = data.aws_ami.amazon_linux_2.id
 }
 
-resource "aws_instance" "instance01" {
+resource "aws_instance" "instance02" {
   ami           = data.aws_ami.amazon_linux_2.id
   instance_type = "t2.micro"
   tags = {
-    Name = "terraform-example-ritesh"
+    Name = "ritesh-cloud-demo"
   }
   security_groups = ["${aws_security_group.AWSaccess.name}"]
 }
 
 resource "aws_security_group" "AWSaccess" {
-  name        = "AWSaccess-ritesh"
+  name        = "AWSaccess-cloud-demo-ritesh"
   description = "SSH access"
 
   dynamic "ingress" {
